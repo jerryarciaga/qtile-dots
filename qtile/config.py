@@ -170,7 +170,7 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 # widget.Systray(),
-                widget.Clock(format="  %a %d %b     %H:%M"),
+                widget.Clock(format="  %a %d %b    %H:%M"),
                 widget.Spacer(),
                 widget.Backlight(
                     backlight_name="intel_backlight",
