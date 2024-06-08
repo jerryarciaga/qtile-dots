@@ -28,7 +28,7 @@ from libqtile import bar, layout, qtile, widget, hook
 from libqtile.backend.wayland import InputConfig
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-import os.path
+import os.path, subprocess
 import pulsectl_asyncio
 
 mod = "mod4"
@@ -278,12 +278,16 @@ keys.extend(
     ]
 )
 
-
 @hook.subscribe.suspend
 def lock_on_sleep():
     # Run screen locker
     qtile.spawn(os.path.join(os.path.expanduser("~"),
         ".config/qtile/scripts/screenlocker.sh"))
+
+# TODO: Fix startup hook
+# @hook.subscribe.startup
+# def autostart():
+#     subprocess.run(["/usr/bin/dunst"])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
