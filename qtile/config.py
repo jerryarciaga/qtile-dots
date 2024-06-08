@@ -189,6 +189,7 @@ screens = [
                     discharge_char="",
                     full_char="",
                     format="{char} {percent:1.0%}",
+                    update_interval=5,
                 ),
             ],
             20,
