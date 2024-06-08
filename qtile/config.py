@@ -192,7 +192,7 @@ screens = [
                     update_interval=5,
                 ),
             ],
-            20,
+            30,
             background="#1e1e2e",
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
