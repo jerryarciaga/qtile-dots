@@ -252,6 +252,17 @@ wl_xcursor_size = 24
 
 ## Custom keybindings
 
+# Manual lock screen
+keys.extend(
+    [
+        Key([mod, "control"], "s",
+            lazy.spawn(
+                os.path.join(os.path.expanduser("~"),".config/qtile/scripts/screenlocker.sh")),
+            desc="Manually lock screen",
+        )
+    ]
+)
+
 # Adjust brightness
 keys.extend(
     [
