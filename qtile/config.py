@@ -35,6 +35,17 @@ import json
 mod = "mod4"
 terminal = "/usr/bin/alacritty"
 
+# Color palette from Catpuccin project
+# More info on usage found at: https://catppuccin.com/palette
+# palette.json was downloaded from
+#   https://github.com/catppuccin/palette/blob/main/palette.json
+def json_read(filename:str):
+    with open(filename) as input:
+        return json.load(input)
+palette = os.path.join(os.path.expanduser('~'), '.config/qtile/palette.json')
+catpuccin = json_read(palette)
+flavor = "mocha" # Flavor choices can be latte, frappe, macchiato and mocha
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -123,7 +134,6 @@ for i in groups:
         ]
     )
 
-
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=1),
     layout.Max(),
@@ -194,7 +204,7 @@ screens = [
                 ),
             ],
             30,
-            background="#1e1e2e",
+            background=catpuccin[flavor]['colors']['base']['hex'],
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
