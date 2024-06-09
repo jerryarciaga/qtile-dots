@@ -80,7 +80,6 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Rofi drun"),
-
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -277,6 +276,14 @@ keys.extend(
         # Firefox
         Key([mod], "b", lazy.spawn("/usr/bin/firefox"), desc="Launch Firefox"),
         Key([mod, "shift"], "b", lazy.spawn("/usr/bin/firefox --private-window"), desc="Launch Firefox"),
+
+        # Screenshot
+        Key([mod, "shift"], "s", lazy.spawn(
+                os.path.join(os.path.expanduser("~"),
+                ".config/qtile/scripts/screenshot.sh"),
+            ),
+            desc="Take screenshot"
+        ),
     ]
 )
 
