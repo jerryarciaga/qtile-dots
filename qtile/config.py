@@ -30,6 +30,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 import os.path, subprocess
 import pulsectl_asyncio
+import json
 
 mod = "mod4"
 terminal = "/usr/bin/alacritty"
@@ -121,6 +122,7 @@ for i in groups:
             #     desc="move focused window to group {}".format(i.name)),
         ]
     )
+
 
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=1),
