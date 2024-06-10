@@ -152,7 +152,9 @@ layouts = [
 widget_defaults = dict(
     font="sans",
     fontsize=12,
-    padding=3,
+    padding=5,
+    foreground=catpuccin["text"]["hex"],
+    background=catpuccin["base"]["hex"],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -183,8 +185,6 @@ screens = [
                 # widget.StatusNotifier(),
                 # widget.Systray(),
                 widget.Clock(
-                    foreground=catpuccin["text"]["hex"],
-                    background=catpuccin["base"]["hex"],
                     format="  %a %d %b    %H:%M",
                 ),
                 widget.Spacer(),
