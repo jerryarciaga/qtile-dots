@@ -168,6 +168,11 @@ screens = [
                 # widget.CurrentLayout(),
                 widget.GroupBox(
                     active=catpuccin["text"]["hex"],
+                    highlight_method='line',
+                    highlight_color=[
+                        catpuccin['surface0']['hex'],
+                        catpuccin['green']['hex'],
+                    ],
                     hide_unused=True,
                 ),
                 widget.Prompt(
