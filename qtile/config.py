@@ -35,16 +35,15 @@ import json
 mod = "mod4"
 terminal = "/usr/bin/alacritty"
 
+flavor = "mocha" # Flavor choices can be latte, frappe, macchiato and mocha
 # Color palette from Catpuccin project
-# More info on usage found at: https://catppuccin.com/palette
 # palette.json was downloaded from
 #   https://github.com/catppuccin/palette/blob/main/palette.json
 def json_read(filename:str):
     with open(filename) as input:
         return json.load(input)
 palette = os.path.join(os.path.expanduser('~'), '.config/qtile/palette.json')
-catpuccin = json_read(palette)
-flavor = "mocha" # Flavor choices can be latte, frappe, macchiato and mocha
+catpuccin = json_read(palette)[flavor]["colors"]
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -135,7 +134,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=1),
+    layout.Columns(border_focus=catpuccin["lavender"]["hex"], border_width=1),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -166,6 +165,8 @@ screens = [
             [
                 # widget.CurrentLayout(),
                 widget.GroupBox(
+                    foreground=catpuccin["subtext0"]["hex"],
+                    active=catpuccin["text"]["hex"],
                     hide_unused=True,
                 ),
                 widget.Prompt(
@@ -181,7 +182,11 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 # widget.Systray(),
-                widget.Clock(format="  %a %d %b    %H:%M"),
+                widget.Clock(
+                    foreground=catpuccin["text"]["hex"],
+                    background=catpuccin["base"]["hex"],
+                    format="  %a %d %b    %H:%M",
+                ),
                 widget.Spacer(),
                 widget.Backlight(
                     backlight_name="intel_backlight",
@@ -204,7 +209,7 @@ screens = [
                 ),
             ],
             30,
-            background=catpuccin[flavor]['colors']['base']['hex'],
+            background=catpuccin["crust"]["hex"],
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
