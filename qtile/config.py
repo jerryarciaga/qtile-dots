@@ -207,7 +207,7 @@ screens = [
                     min_brightness=5,
                 ),
                 widget.PulseVolume(
-                    fmt="  {}",
+                    fmt="   {}",
                     mute_format="",
                     limit_max_volume=True,
                 ),
