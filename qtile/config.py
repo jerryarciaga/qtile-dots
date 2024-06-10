@@ -43,7 +43,14 @@ def json_read(filename:str):
     with open(filename) as input:
         return json.load(input)
 palette = os.path.join(os.path.expanduser('~'), '.config/qtile/palette.json')
+
+# Customize colors here
+theme = "green"
 catpuccin = json_read(palette)[flavor]["colors"]
+base_color = catpuccin["base"]["hex"]
+text_color = catpuccin["text"]["hex"]
+main_color = catpuccin[theme]["hex"]
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -134,7 +141,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus=catpuccin["lavender"]["hex"], border_width=1),
+    layout.Columns(border_focus=main_color, border_width=1),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -153,8 +160,8 @@ widget_defaults = dict(
     font="sans",
     fontsize=12,
     padding=5,
-    foreground=catpuccin["text"]["hex"],
-    background=catpuccin["base"]["hex"],
+    foreground=text_color,
+    background=base_color,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -167,11 +174,11 @@ screens = [
             [
                 # widget.CurrentLayout(),
                 widget.GroupBox(
-                    active=catpuccin["text"]["hex"],
+                    active=text_color,
                     highlight_method='line',
                     highlight_color=[
-                        catpuccin['surface0']['hex'],
-                        catpuccin['green']['hex'],
+                        main_color,
+                        base_color,
                     ],
                     hide_unused=True,
                 ),
@@ -213,7 +220,7 @@ screens = [
                 ),
             ],
             30,
-            background=catpuccin["crust"]["hex"],
+            background=base_color,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
