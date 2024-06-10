@@ -45,7 +45,7 @@ def json_read(filename:str):
 palette = os.path.join(os.path.expanduser('~'), '.config/qtile/palette.json')
 
 # Customize colors here
-theme = "green"
+theme = "blue"
 catpuccin = json_read(palette)[flavor]["colors"]
 base_color = catpuccin["base"]["hex"]
 text_color = catpuccin["text"]["hex"]
