@@ -167,7 +167,6 @@ screens = [
             [
                 # widget.CurrentLayout(),
                 widget.GroupBox(
-                    foreground=catpuccin["subtext0"]["hex"],
                     active=catpuccin["text"]["hex"],
                     hide_unused=True,
                 ),
