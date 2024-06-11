@@ -32,25 +32,26 @@ import os.path, subprocess, psutil
 import pulsectl_asyncio
 import json
 
-mod = "mod4"
-terminal = "/usr/bin/alacritty"
 
-flavor = "mocha" # Flavor choices can be latte, frappe, macchiato and mocha
-# Color palette from Catpuccin project
-# palette.json was downloaded from
-#   https://github.com/catppuccin/palette/blob/main/palette.json
 def json_read(filename:str):
     with open(filename) as input:
         return json.load(input)
-palette = os.path.join(os.path.expanduser('~'), '.config/qtile/palette.json')
+
+# Color palette from Catpuccin project
+#   https://github.com/catppuccin/palette/blob/main/palette.json
+palette_file = os.path.join(os.path.expanduser('~'), '.config/qtile/palette.json')
+palette = json_read(palette_file)
 
 # Customize colors here
+flavor = "mocha" # Flavor choices can be latte, frappe, macchiato and mocha
 theme = "blue"
-catpuccin = json_read(palette)[flavor]["colors"]
+catpuccin = palette[flavor]["colors"]
 base_color = catpuccin["base"]["hex"]
 text_color = catpuccin["text"]["hex"]
 main_color = catpuccin[theme]["hex"]
 
+mod = "mod4"
+terminal = "/usr/bin/alacritty"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
