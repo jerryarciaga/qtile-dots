@@ -28,7 +28,7 @@ from libqtile import bar, layout, qtile, widget, hook
 from libqtile.backend.wayland import InputConfig
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-import os.path, subprocess, psutil
+import os.path, subprocess
 import pulsectl_asyncio
 import json
 
@@ -211,14 +211,6 @@ screens = [
                     fmt="   {}",
                     mute_format="",
                     limit_max_volume=True,
-                ),
-                widget.CPU(
-                    fmt="  {}",
-                    format="{load_percent}%",
-                ),
-                widget.Memory(
-                    fmt="  {}",
-                    format="{MemPercent}%",
                 ),
                 widget.Battery(
                     charge_char="",
