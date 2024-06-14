@@ -170,7 +170,7 @@ screens = [
     Screen(
         wallpaper=os.path.join(os.path.expanduser("~"),
             ".config/qtile/wallpaper/hk_greenpath.jpg"),
-        wallpaper_mode="stretch",
+        wallpaper_mode="fill",
         top=bar.Bar(
             [
                 # widget.CurrentLayout(),
