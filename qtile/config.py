@@ -217,6 +217,7 @@ screens = [
                 ),
                 widget.Battery(
                     foreground=catpuccin["blue"]["hex"],
+                    show_short_text=False,
                     charge_char="",
                     discharge_char="",
                     full_char="",
