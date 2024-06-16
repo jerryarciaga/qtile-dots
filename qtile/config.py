@@ -202,6 +202,7 @@ screens = [
                 ),
                 widget.Spacer(),
                 widget.Backlight(
+                    foreground=catpuccin["yellow"]["hex"],
                     backlight_name="intel_backlight",
                     fmt=" {}",
                     change_command=None,
@@ -209,11 +210,13 @@ screens = [
                     min_brightness=5,
                 ),
                 widget.PulseVolume(
+                    foreground=catpuccin["teal"]["hex"],
                     fmt="   {}",
                     mute_format="",
                     limit_max_volume=True,
                 ),
                 widget.Battery(
+                    foreground=catpuccin["blue"]["hex"],
                     charge_char="",
                     discharge_char="",
                     full_char="",
