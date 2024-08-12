@@ -319,8 +319,8 @@ keys.extend(
 keys.extend(
     [
         # Firefox
-        Key([mod], "b", lazy.spawn("/usr/bin/firefox"), desc="Launch Firefox"),
-        Key([mod, "shift"], "b", lazy.spawn("/usr/bin/firefox --private-window"), desc="Launch Firefox"),
+        Key([mod], "b", lazy.spawn("firefox"), desc="Launch Firefox"),
+        Key([mod, "shift"], "b", lazy.spawn("firefox --private-window"), desc="Launch Firefox"),
 
         # Screenshot
         Key([mod, "shift"], "s", lazy.spawn(
