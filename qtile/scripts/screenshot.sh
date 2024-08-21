@@ -1,3 +1,3 @@
 #!/usr/bin/sh
 cd /tmp
-grim -g $(slurp) -o screenshot.png
+slurp | grim -g - /tmp/screenshot.png
