@@ -16,7 +16,7 @@ CONFIG_DIR="$HOME/.config"
 for config_folder in ${CONFIG_FOLDERS[*]}; do
     echo "Installing $config_folder..."
     config=$CONFIG_DIR/$config_folder
-    if [ -d $config ]; then
+    if [[ -d $config ]]; then
         echo "  $config exists. Deleting folder and setting symlink..."
         rm -r $config
     fi
