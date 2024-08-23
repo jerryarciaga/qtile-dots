@@ -9,6 +9,8 @@ CONFIG_FOLDERS=(
     "alacritty"
     "dunst"
     "rofi"
+    "gtk-2.0"
+    "gtk-3.0"
 )
 DOTS_DIR=$PWD
 CONFIG_DIR="$HOME/.config"
