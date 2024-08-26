@@ -203,7 +203,7 @@ screens = [
                 widget.Spacer(),
                 widget.Backlight(
                     foreground=catpuccin["yellow"]["hex"],
-                    backlight_name="intel_backlight",
+                    backlight_name=os.listdir("/sys/class/backlight")[0],
                     fmt=" {}",
                     change_command=None,
                     step=5,
