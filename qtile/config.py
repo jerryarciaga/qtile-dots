@@ -215,15 +215,6 @@ screens = [
                     mute_format="",
                     limit_max_volume=True,
                 ),
-                widget.Battery(
-                    foreground=catpuccin["blue"]["hex"],
-                    show_short_text=False,
-                    charge_char="",
-                    discharge_char="",
-                    full_char="",
-                    format="{char} {percent:1.0%}",
-                    update_interval=5,
-                ),
             ],
             30,
             background=base_color,
@@ -236,6 +227,22 @@ screens = [
         # x11_drag_polling_rate = 60,
     ),
 ]
+
+# If you have a laptop battery inside, you should have files in
+# /sys/class/power_supply. In that case, add the battery widget.
+if len(os.listdir("/sys/class/power_supply")):
+    screens[0].top.widgets.append(
+        widget.Battery(
+            foreground=catpuccin["blue"]["hex"],
+            show_short_text=False,
+            charge_char="",
+            discharge_char="",
+            full_char="",
+            format="{char} {percent:1.0%}",
+            update_interval=5,
+        )
+    )
+
 
 # Drag floating layouts.
 mouse = [
