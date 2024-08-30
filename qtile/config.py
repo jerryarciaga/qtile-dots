@@ -168,9 +168,6 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper=os.path.join(os.path.expanduser("~"),
-            ".config/qtile/wallpaper/hk_greenpath.jpg"),
-        wallpaper_mode="fill",
         top=bar.Bar(
             [
                 # widget.CurrentLayout(),
