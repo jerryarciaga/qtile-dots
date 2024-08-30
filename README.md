@@ -21,7 +21,9 @@ I used images created by [Sevenix](https://www.deviantart.com/sevenics) to use a
 * Clone the repository:
 ```
 git clone https://github.com/jerryarciaga/qtile-dots $HOME/.qtile-dots
+cd $HOME/.qtile-dots
 ```
-* Run the install script. This is recommmended if you haven't written any config files yet. Running this script creates symlinks linking the actual config files and wallpapers to your $HOME/.config directory, so everytime you update this repo via `git pull` you won't have to copy the updated files over.:
-
-`.\install.sh` - Overwrites your qtile, alacritty, dunst, rofi and gtk configs
+* Run the install script. This is recommmended if you haven't written any config files yet. Running this script creates symlinks linking the actual config files and wallpapers to your $HOME/.config directory, so everytime you update this repo via `git pull` you won't have to copy the updated files over. This following command overwrites your qtile, alacritty, dunst, rofi and gtk configs
+```
+./install.sh 
+```
