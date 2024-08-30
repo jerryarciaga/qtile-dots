@@ -13,5 +13,12 @@ I used images created by [Sevenix](https://www.deviantart.com/sevenics) to use a
 * [Prophecy of Fontaine](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5ab949d9-d365-49d3-9547-884593e0a39e/dfi587p-32f1cc95-3088-4c77-b2a9-5b103317cff7.jpg/v1/fill/w_1192,h_670,q_70,strp/sumeru_awakening_by_sevenics_dfi587p-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvNWFiOTQ5ZDktZDM2NS00OWQzLTk1NDctODg0NTkzZTBhMzllXC9kZmk1ODdwLTMyZjFjYzk1LTMwODgtNGM3Ny1iMmE5LTViMTAzMzE3Y2ZmNy5qcGciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.4-XpPh1DmR2kaX-PLCJkjmEvuhed-m8lNpb-VQVLE88)
 
 # Requirements
-* `sddm` - Display Manager
-* `qtile` - Window Manager
+* `sddm` - Display manager
+* `qtile`, `libinbput`, `libpulse`, `python-pywayland`, `python-pywlroots`, `xorg-xwayland` - Window manager
+* `pipewire`, `pipewire-audio`, `pipewire-jack`, `pipewire-pulse`, `pipewire-session-manager` - Audio support
+
+# Installation
+* Clone the repository
+`git clone https://github.com/jerryarciaga/qtile-dots $HOME/.qtile-dots`
+* Run the install script. This is recommmended if you haven't written any config files yet. Running this script creates symlinks linking the actual config files and wallpapers to your $HOME/.config directory, so everytime you update this repo via `git pull` you won't have to copy the updated files over.
+`.\install.sh` - Overwrites your qtile, alacritty, dunst, rofi and gtk configs
