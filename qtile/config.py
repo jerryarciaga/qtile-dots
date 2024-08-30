@@ -32,7 +32,6 @@ import os.path, subprocess
 import pulsectl_asyncio
 import json
 
-
 def json_read(filename:str):
     with open(filename) as input:
         return json.load(input)
@@ -338,6 +337,21 @@ keys.extend(
         ),
     ]
 )
+
+#Set wallpaper every time a group is switched
+wallpapers = [ os.path.join(os.path.expanduser('~'), '.config/qtile/wallpaper', wallpaper)
+    for wallpaper in [
+        "mondstadt.jpg",
+        "liyue.jpg",
+        "inazuma.jpg",
+        "sumeru.jpg",
+        "fontaine.jpg",
+    ]
+]
+@hook.subscribe.setgroup
+def set_wallpaper():
+    wallpaper = wallpapers[qtile.groups.index(qtile.current_group)]
+    qtile.paint_screen(qtile.current_screen, wallpaper, mode='fill')
 
 @hook.subscribe.suspend
 def lock_on_sleep():
