@@ -5,6 +5,7 @@
 from libqtile import bar, layout, qtile, widget, hook
 from libqtile.backend.wayland import InputConfig
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import ScratchPad, DropDown
 from libqtile.lazy import lazy
 import os.path, subprocess
 import pulsectl_asyncio
@@ -92,9 +93,8 @@ for vt in range(1, 8):
         )
     )
 
-
+# Workspaces
 groups = [Group(i) for i in "12345"]
-
 for i in groups:
     keys.extend(
         [
@@ -118,11 +118,25 @@ for i in groups:
             #     desc="move focused window to group {}".format(i.name)),
         ]
     )
-
 layouts = [
     layout.Columns(border_focus=main_color, border_width=1),
     layout.Max(),
 ]
+
+# Scratchpad
+groups.extend(
+    [
+        ScratchPad("scratchpad", [
+            DropDown('term', 'alacritty', opacity=0.8),
+        ]),
+    ]
+)
+keys.extend(
+    [
+        Key([mod], "0", lazy.group['scratchpad'].dropdown_toggle('term')),
+    ]
+)
+
 
 widget_defaults = dict(
     font="sans",
